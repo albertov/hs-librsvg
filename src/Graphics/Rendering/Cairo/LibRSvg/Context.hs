@@ -13,6 +13,7 @@ import Foreign.ForeignPtr
 import Graphics.Rendering.Cairo.Types
 
 newtype Svg = Svg (ForeignPtr Svg)
+  deriving (Eq, Show)
 
 rsvgCtx :: C.Context
 rsvgCtx = C.baseCtx <> ctx'

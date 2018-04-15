@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+import Data.Either (isLeft)
 import Test.Hspec
 import Graphics.Rendering.Cairo
 import Graphics.Rendering.Cairo.LibRSvg
@@ -16,3 +17,6 @@ spec = do
     dimensions svg `shouldReturn` (28,33)
     renderWith surf (render svg) `shouldReturn` True
     --surfaceWriteToPNG surf "flame.png"
+  it "returns error on invalid svg data" $ do
+    eSvg <- fromBuffer "im invalid data"
+    eSvg `shouldSatisfy` isLeft
