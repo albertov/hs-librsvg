@@ -1,0 +1,5 @@
+result
+dist*
+cabal.project.local
+*.sw?
+result*
